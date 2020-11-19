@@ -1,0 +1,14 @@
+amazon-properties:
+  endpointUrl: http://localhost:4566
+  accessKey: ACCESSKEYAWSUSER
+  secretKey: sEcreTKey
+  bucketName: mybucket
+
+cloud.aws:
+  credentials:
+    accessKey: ACCESSKEYAWSUSER
+    secretKey: sEcreTKey
+  region:
+    static: eu-central-1
+  stack:
+    auto: false
