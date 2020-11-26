@@ -10,8 +10,8 @@
 
 
 # $ aws --endpoint-url=http://localhost:4566 s3 ls
-# $ aws --endpoint-url=http://localhost:4566 s3 mb s3://mybucket
-# $ aws s3 cp README.md s3://mybucket --endpoint-url=http://localhost:4566
+# $ aws --endpoint-url=http://localhost:4566 s3 mb s3://mybucketramus
+# $ aws s3 cp README.md s3://mybucketramus --endpoint-url=http://localhost:4566
 # 
 version: '2.1'
 

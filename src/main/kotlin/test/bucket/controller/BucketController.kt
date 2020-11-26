@@ -1,21 +1,34 @@
 package test.bucket.controller
 
+import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.ResponseEntity
-import org.springframework.web.bind.annotation.GetMapping
-import org.springframework.web.bind.annotation.RequestMapping
-import org.springframework.web.bind.annotation.RestController
-import test.bucket.services.S3KeyDoesNotExistException
-import test.bucket.services.S3Service
-import javax.swing.text.html.parser.Entity
+import org.springframework.web.bind.annotation.*
+import org.springframework.web.multipart.MultipartFile
+import test.bucket.services.AmazonClient
+
 
 @RestController
 @RequestMapping("storage")
-class BucketController (private val service: S3Service) {
+class BucketController () {
+    private var amazonClient: AmazonClient? = null
+
+    @Autowired
+    fun BucketController(amazonClient: AmazonClient?) {
+        this.amazonClient = amazonClient
+    }
+
+    @PostMapping("/uploadFile")
+    fun uploadFile(@RequestPart(value = "file") file: MultipartFile): String? {
+        return amazonClient!!.uploadFile(file)
+    }
+
+    @DeleteMapping("/deleteFile")
+    fun deleteFile(@RequestPart(value = "url") fileUrl: String): String? {
+        return amazonClient!!.deleteFileFromS3Bucket(fileUrl)
+    }
+
     @GetMapping
-    fun read(): ResponseEntity.BodyBuilder {
-
-        val s3Object = service.getObject()
-        return ResponseEntity.status(200)
-
+    fun read(): ResponseEntity<String> {
+        return ResponseEntity.ok("Hellloooooooo")
     }
 }

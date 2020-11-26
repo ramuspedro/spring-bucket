@@ -1,14 +1,7 @@
-amazon-properties:
-  endpointUrl: http://localhost:4566
+amazonProperties:
+#  endpointUrl: https://s3.us-east-2.amazonaws.com
+  # us-east-1
+  endpointUrl: http://192.168.15.6:4566
   accessKey: ACCESSKEYAWSUSER
   secretKey: sEcreTKey
-  bucketName: mybucket
-
-cloud.aws:
-  credentials:
-    accessKey: ACCESSKEYAWSUSER
-    secretKey: sEcreTKey
-  region:
-    static: eu-central-1
-  stack:
-    auto: false
+  bucketName: mybucketramus
